@@ -111,3 +111,6 @@ STATICFILES_DIRS = [ BASE_DIR / "static",]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 DATE_FORMAT = "Y年m月d日"
+
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
