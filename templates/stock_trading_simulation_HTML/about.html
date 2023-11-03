@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}株売買シミュレーション{% endblock %}
+{% load humanize %}
+{% block header %}
+  {% if user.is_authenticated %} 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only"></span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'stock_data_list' %}">シミュレーションリスト</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_view' %}">My Page</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" onclick="return confirm('本当にログアウトしますか？')">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  {% else %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  {% endif %}
+  <link rel="stylesheet"  type="text/css" href="{% static 'css\about\about_styles.css' %}">
+  {% endblock header %}
+
+{% block content %}
+    <h1 class="h1">株式売買シミュレーションとは</h1>
+    <p>株式売買シミュレーションは、株式取引における損益を計算するツールです。</p>
+    <p>株式投資において、損失は避けられません。</p>
+    <p>株式投資でよく起こるのは、株の損失を確定できず、株を何年も保有し続ける「株の塩漬け」や、大きく下落したときにやっと損失確定し、元本を大幅に減らしてしまうことです。
+    <p>元本を効率的に活用し、大きな損失を抑えるためには、あらかじめ許容できる損失を設定し、その基準に従って株を購入することが重要です。</p>
+    <p>計画的な株式投資に、この売買シミュレーションを活用してみてください。</p>
+
+    <h2>使い方</h2>
+    <p>証券コードは4桁の数字を入力してください。日本国内の証券取引所に上場してる会社しか検索できません</p>
+    <p>企業名はご自身で入力をお願いします。自由に記載できます。</p>
+    <p>平均取得単価とは簡単に説明すると購入した株価の価格です。900円の株価を購入した際は[900]と入力してください</p>
+    <p>購入株数は購入株の枚数を入力してください。</p>
+    <p>シミュレーション株価は将来の株価を入力してください。上昇・下落際の株価、どちらでもかまいません。</p>
+    <div class="images">
+      <p>※画像をクリックすると拡大して表示できます</p>
+    <ul class="imglist">
+      <li>
+        <p>①株売買シミュレーションリストの結果</p>
+        <figure class="pic">
+        <a href= "{% static 'images/about/stock_trading_simulation_result.jpeg' %}" data-lightbox="photo01" data-title="シミュレーションの結果。結果を保存するとシミュレーションリストへ保存されます。" data-lightbox="album">
+        <img class="photo1" src="{% static 'images/about/stock_trading_simulation_result.jpeg' %}"></a>
+      </figure>
+      <p>～具体的な例～</p>
+      <p>トヨタ自動車(証券コード:7203)の株価を2023年11月1日に2700円で200株購入。</p>
+      <p>下落した際の損失益が知りたいから、シミュレーション株価は2500円を設定。</p>
+      </li>
+      <li>
+        <p>②シミュレーションリスト</p>
+        <figure class="pic">
+        <a href= "{% static 'images/about/simulation_list.jpeg' %}" data-lightbox="photo01" data-title="シミュレーションリストでは、現在の株価に対しての損失益も確認することができます。" data-lightbox="album">
+        <img class="photo" src="{% static 'images/about/simulation_list.jpeg' %}"></a>
+      </figure>
+      </li>
+      <li>
+        <p>③保存された詳細のデータ</p>
+        <figure class="pic">
+        <a href= "{% static 'images/about/simulation_detail.jpeg' %}" data-lightbox="photo01" data-title="シミュレーションリストにある詳細ボタンを押すと、株価が下落したときの損益等が確認できます。" data-lightbox="album">
+        <img class="photo" src="{% static 'images/about/simulation_detail.jpeg' %}"></a>
+      </figure>
+      </li>
+    </ul>
+  </div>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
+{% endblock %}

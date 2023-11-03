@@ -1,0 +1,57 @@
+.page-container {
+  min-height: 100vh; 
+  padding: 20px; 
+  box-sizing: border-box;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  height: 60px; 
+  box-shadow: 0 2px 4px rgba(100, 112, 136, 0.568);
+
+}
+
+.main-content {
+  margin-top: 80px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.h1{
+  margin-bottom: 10px;
+}
+
+.page_nation{
+  margin: 0 auto;
+}
+
+.table-responsive{
+  margin: 0 auto;
+}
+
+.table{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.navbar-brand{
+  padding-left: 30px;
+}
+
+table {
+  border: 5px solid;
+  border-collapse: collapse; 
+}
+
+.red {
+  color: red;
+}
+
+.red-underline {
+    border-bottom: 6px double rgb(230, 18, 124);
+    font-weight:bold;
+}
+

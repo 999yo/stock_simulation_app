@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block header %} 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'stock_data_list' %}">シミュレーションリスト</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'user_view' %}">My Page</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  {% endblock header %}
+{% block title %}アカウント削除{% endblock %}
+
+{% block content %}
+<div class="container">
+  <p>アカウントを削除するには、パスワードを入力してください。</p>
+  
+  <form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        <label for="{{ form.password.id_for_label }}">パスワード:</label>
+        {{ form.password }}
+        {% for error in form.password.errors %}
+        <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('本当にアカウントを削除しますか？')" style="margin-top: 10px;">アカウントを削除</button>
+</form>
+{% endblock %}

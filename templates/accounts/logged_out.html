@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}ログアウトしました{% endblock %}
+{% block header %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only"></span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'stock_data_list' %}">シミュレーションリスト</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_view' %}">My Page</a>
+          </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'logout' %}" onclick="return confirm('本当にログアウトしますか？')">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  {% endblock header %}
+  
+{% block content %}
+<h2>ログアウトしました</h2>
+<p>ログアウトが完了しました。</p>
+<a href="{% url 'home' %}">ホームに戻る</a>
+{% endblock %}

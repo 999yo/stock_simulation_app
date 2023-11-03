@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}ユーザー情報{% endblock %}
+{% block header %} 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only"></span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'stock_data_list' %}">シミュレーションリスト</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'user_view' %}">My Page</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}" onclick="return confirm('本当にログアウトしますか？')">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+{% endblock header %}
+
+{% block content %}
+<h1 class="h1">ユーザー情報</h1>
+      <p>ユーザー名：{{user.username}}</p>
+      <p>登録メールアドレス：{{user.email}}</p>
+      <p>アカウント作成日：{{user.date_joined|date }}</p>
+      <a class="btn btn-danger" href="{% url 'delete_account' %}" role="button">アカウントを削除</a></p>
+
+{% endblock %}

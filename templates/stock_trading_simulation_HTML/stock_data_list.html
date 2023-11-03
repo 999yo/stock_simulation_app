@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% load custom_filters %}
+{% block title %}シミュレーションリスト{% endblock %}
+{% block header %}
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Home<span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About<span class="sr-only"></span></a>
+        </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'stock_data_list' %}">シミュレーションリスト</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'user_view' %}">My Page</a>
+        </li>
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}" onclick="return confirm('本当にログアウトしますか？')">Logout</a>
+        </li>
+  </div>
+</nav>
+  {% endblock header %}
+
+{% block content %}
+<h1 class="h1">シミュレーションリスト</h1>
+{% if stock_data_list %}
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>証券コード</th>
+            <th>企業名</th>
+            <th>購入した日付</th>
+            <th>平均取得単価</th>
+            <th>購入株枚数</th>
+            <th>現在の株価</th>
+            <th>現在の損失益</th>
+            <th>シミュレーション株価</th>
+            <th>シミュレーション損益</th>
+            <th>詳細</th>
+            <th>削除</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for saved_data in stock_data_list %}
+        <tr>
+            <td>{{ saved_data.ticker_symbol }}</td>
+            <td>{{ saved_data.company_name }}</td>
+            <td>{{ saved_data.date|date:"y/m/d" }}</td>
+            <td>{{ saved_data.acquisition_stock_price|truncate_decimal|format_number|intcomma}} 円</td>
+            <td>{{ saved_data.number_of_shares_purchased|truncate_decimal|format_number|intcomma }} 株</td>
+            <td> 
+              {% if saved_data.current_stock_price is not None %}
+                {{ saved_data.current_stock_price|truncate_decimal|format_number|intcomma }} 円
+              {% else %}
+                {{ saved_data.current_stock_price|default:"-" }}
+              {% endif %}
+            </td>
+            <td>{% if saved_data.current_profit_and_loss is not None %}
+                  {{ saved_data.current_profit_and_loss|truncate_decimal|format_number|intcomma}} 円
+                {% else %}
+                  {{ saved_data.current_profit_and_loss|default:"-"}}
+                {% endif %}
+            </td>
+            <td>{{ saved_data.simulation_stock_price|truncate_decimal|format_number|intcomma }} 円</td>
+            <td>{{ saved_data.simulation_stock_profit_and_loss|truncate_decimal|format_number|intcomma}}円</td>
+          
+            <td><a class="btn btn-primary"  href="{% url 'stock_detail_view' saved_data.pk %}" role="button">詳細</a></td>
+            <td>
+              <a class="btn btn-danger" href="{% url 'delete_saved_data' saved_data.pk %}" role="button" onclick="return confirm('本当に削除しますか？')">削除</a>
+            </td>
+           
+        </tr>
+        {% endfor %}
+</tbody>
+</table>
+<nav class="page_nation justify-content-center" aria-label="ページネーション">
+	<ul class="pagination">
+
+		{% if page_obj.has_previous %}
+			<li class="page-item">
+				<a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="前へ">
+					<span aria-hidden="true">&laquo;</span>
+				</a>
+			</li>
+		{% endif %}
+
+		{% for page_num in page_obj.paginator.page_range %} 
+			{% if page_num == page_obj.number %}
+				<li class="page-item active">
+					<a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+				</li>
+			{% else %}
+				<li class="page-item">
+					<a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% if page_obj.has_next %}
+			<li class="page-item">
+				<a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="次へ">
+					<span aria-hidden="true">&raquo;</span>
+				</a>
+			</li>
+		{% endif %}
+
+	</ul>
+</nav>
+{% else %}
+  <p>まだデータが保存されていません。</p>
+  <p>株売買シミュレーションで結果を保存してみてください。</p>
+{% endif %}
+{% endblock %}
