@@ -30,11 +30,11 @@ class CalcFormView(FormView):
         if ticker_symbol is not None:
             my_share = share.Share(ticker_symbol + '.T')
             try:
-                symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 1, share.FREQUENCY_TYPE_DAY, 1)
+                symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY, 5, share.FREQUENCY_TYPE_DAY, 1)
                 if symbol_data is not None and 'close' in symbol_data:
-                    current_stock_price = symbol_data['close'][0]
+                    current_stock_price = symbol_data['close'][-1]
                 else:
-                    pass
+                    print(current_stock_price)
             except YahooFinanceError as e:
                 print(e.message)
                 
@@ -153,10 +153,10 @@ class StockDataListView(ListView):
                 ticker_symbol= stock_data.ticker_symbol
                 my_share = share.Share(ticker_symbol + '.T')
                 symbol_data = my_share.get_historical(share.PERIOD_TYPE_DAY,
-                                          1,
+                                          5,
                                           share.FREQUENCY_TYPE_DAY,
                                           1)
-                current_stock_price = symbol_data['close'][0]
+                current_stock_price = symbol_data['close'][-1]
                 
             except YahooFinanceError as e:
                 print(e.message)
