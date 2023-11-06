@@ -30,6 +30,8 @@ https://23y.pythonanywhere.com/
 | データベース   |  MySQL 8.0.33  |
 |ライブラリ　　 |  yahoo-finance-api2 0.0.12    |
 
+## ER図
+![graph-model](https://github.com/999yo/stock_simulation_app/assets/103639076/c0fd853a-c943-47ae-92b7-b8e0b6c42e6c)
 
 
 
