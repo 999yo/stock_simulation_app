@@ -26,7 +26,7 @@ https://23y.pythonanywhere.com/
 | カテゴリ       | 技術  |
 | :------------- | :------------ |
 | フロントエンド | CSS　JavaScript（jQuery） boostrap5|
-| バックエンド   | Python 3.7.13  Django 3.2.23 |
+| バックエンド   | Python 3.7.13　  Django 3.2.23 |
 | データベース   |  MySQL 8.0.33  |
 | ライブラリ　　 |  yahoo-finance-api2 0.0.12    |
 
