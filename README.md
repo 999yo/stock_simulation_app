@@ -28,13 +28,14 @@ https://23y.pythonanywhere.com/
 |![toppage-1](https://github.com/999yo/stock_simulation_app/assets/103639076/2a6248aa-dee0-4df8-9a9d-48a76172ed3e)|![stock_simulation](https://github.com/999yo/stock_simulation_app/assets/103639076/83a374bf-7d88-4503-8a90-63720645a741)|![simulation_list-0](https://github.com/999yo/stock_simulation_app/assets/103639076/da316a13-947d-4fc8-8e4c-72f68f7f1124)|
 | ログインしてなくても  計算機能を使えるようにしました。    | ログインすると計算結果が保存できます。| 保存したデータをリスト化して閲覧できます。 |
 
-| アカウント登録 | ログイン| ユーザー情報閲覧 |
-|:-----------:|:------------:|:------------:|
-|![signup-0](https://github.com/999yo/stock_simulation_app/assets/103639076/6c5dfb8b-9994-4483-b25d-29554bb474c0)|![Login-0](https://github.com/999yo/stock_simulation_app/assets/103639076/1e7546a0-faa2-461c-bc9f-750996a6e069)|![user_info-0](https://github.com/999yo/stock_simulation_app/assets/103639076/c4e8e22b-3f8f-48e0-a643-c89f81dc0e1b)|
-
 | アプリ説明（About）| 
 |:-----------:|
 |![about](https://github.com/999yo/stock_simulation_app/assets/103639076/53b8d415-dda6-4aaf-8275-498920f8617f)|
+| アプリ内にあるAboutページにてアプリの説明・機能を画像で紹介しています。画像の表示はjQueryの機能を使用してます。|
+
+| アカウント登録 | ログイン| ユーザー情報閲覧 |
+|:-----------:|:------------:|:------------:|
+|![signup-0](https://github.com/999yo/stock_simulation_app/assets/103639076/6c5dfb8b-9994-4483-b25d-29554bb474c0)|![Login-0](https://github.com/999yo/stock_simulation_app/assets/103639076/1e7546a0-faa2-461c-bc9f-750996a6e069)|![user_info-0](https://github.com/999yo/stock_simulation_app/assets/103639076/c4e8e22b-3f8f-48e0-a643-c89f81dc0e1b)|
 
 
 
