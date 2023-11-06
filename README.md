@@ -50,6 +50,7 @@ https://23y.pythonanywhere.com/
 
 ## ER図
 ![graph-model](https://github.com/999yo/stock_simulation_app/assets/103639076/c0fd853a-c943-47ae-92b7-b8e0b6c42e6c)
+<img src="https://github.com/999yo/stock_simulation_app/assets/103639076/c0fd853a-c943-47ae-92b7-b8e0b6c42e6c" width="50%">
 
 ## 今後追加したい機能
 - 証券コードより現在株価だけでなく企業名も取得する機能  
