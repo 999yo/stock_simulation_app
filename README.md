@@ -30,7 +30,7 @@ https://23y.pythonanywhere.com/
 
 | アプリ説明（About）| 
 |:-----------:|
-|![about](https://github.com/999yo/stock_simulation_app/assets/103639076/53b8d415-dda6-4aaf-8275-498920f8617f)|
+|<img src="https://github.com/999yo/stock_simulation_app/assets/103639076/53b8d415-dda6-4aaf-8275-498920f8617f" width="50%">|
 | アプリ内にあるAboutページにてアプリの説明・機能を画像で紹介しています。画像の表示はjQueryの機能を使用してます。|
 
 | アカウント登録 | ログイン| ユーザー情報閲覧 |
